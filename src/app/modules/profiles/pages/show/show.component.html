@@ -1,0 +1,28 @@
+<a routerLink="" class="mb-2 d-block">← Back to the list</a>
+<ng-container *ngIf="profile; else loading">
+  <div class="row">
+    <div class="col-2">
+      <img
+        src="https://via.placeholder.com/500"
+        class="img-fluid"
+        [alt]="profile.fullName"
+      />
+      <small class="my-2 d-block"
+        ><strong>Listed on:</strong> {{ profile.createdAt | date }}</small
+      >
+      <button class="btn btn-success w-100" type="button" (click)="openChat()">
+        <i class="bi bi-envelope"></i> Send a message
+      </button>
+    </div>
+    <div class="col-10">
+      <h1>{{ profile.fullName }}</h1>
+      <p>{{ profile.position }}</p>
+      <h2>About</h2>
+      <p>{{ profile.about }}</p>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading>
+  Loading...
+  <!-- TODO: add spinner -->
+</ng-template>

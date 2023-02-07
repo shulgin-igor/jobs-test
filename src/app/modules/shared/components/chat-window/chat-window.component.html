@@ -1,0 +1,30 @@
+<div class="card fixed-bottom mx-2" [class.open]="isOpen$ | async">
+  <div class="card-header"><h4>Chat</h4></div>
+  <div class="card-body flex-column">
+    <ng-container *ngIf="messages.length > 0; else empty">
+      <div *ngFor="let message of messages">Message text here</div>
+    </ng-container>
+    <ng-template #empty>
+      <div
+        class="empty d-flex flex-column justify-content-center align-items-center"
+      >
+        <i class="bi bi-inbox"></i>
+        There's no messages yet
+      </div>
+    </ng-template>
+    <!-- TODO: messages here -->
+  </div>
+  <div class="card-footer">
+    <form [formGroup]="form" (submit)="sendMessage(form)">
+      <div class="form-group">
+        <textarea class="form-control" formControlName="message"></textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success" [disabled]="!form.valid">
+          Send message
+        </button>
+      </div>
+    </form>
+    <!-- TODO: form here -->
+  </div>
+</div>

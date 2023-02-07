@@ -1,0 +1,28 @@
+.card {
+  width: 400px;
+  left: auto;
+
+  .card-body {
+    flex: 1;
+    min-height: 150px;
+    display: none;
+
+    .empty {
+      flex: 1;
+    }
+  }
+
+  .card-footer {
+    display: none;
+  }
+
+  &.open {
+    .card-body {
+      display: flex;
+    }
+
+    .card-footer {
+      display: block;
+    }
+  }
+}

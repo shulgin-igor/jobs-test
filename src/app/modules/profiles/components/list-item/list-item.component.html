@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex">
+      <div class="me-3">
+        <img
+          src="https://via.placeholder.com/100"
+          class="img-thumbnail"
+          [alt]="profile.fullName"
+        />
+      </div>
+      <div>
+        <h3>
+          <a [routerLink]="['/profile', profile.id]">{{ profile.fullName }}</a>
+        </h3>
+        <small>{{ profile.createdAt | date }}</small>
+        <p>{{ profile.description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-end">
+    <a class="btn btn-primary" [routerLink]="['/profile', profile.id]"
+      ><i class="bi bi-info-circle-fill"></i> View details</a
+    >
+  </div>
+</div>
